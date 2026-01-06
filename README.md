@@ -152,6 +152,6 @@ npm run dev
 
 ## 👤 Author
 
-**Ayush Rawat**  
+**Arpita Maurya**  
 Full Stack Developer Intern Applicant
 # Movie-Recommendation-web-app-Acelucid-
