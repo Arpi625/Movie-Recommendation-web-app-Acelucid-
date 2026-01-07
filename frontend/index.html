@@ -3,123 +3,206 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Movie Recommendation App</title>
+    <title>CineMatch – Movie Recommender</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
       * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
       }
 
       body {
-        margin: 0;
-        padding: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #1e3a8a, #2563eb);
         min-height: 100vh;
+        background: radial-gradient(circle at top, #111827, #030712);
         display: flex;
         align-items: center;
         justify-content: center;
+        color: #e5e7eb;
       }
 
-      .page {
+      .app-container {
         width: 100%;
-        max-width: 650px;
-        background: #ffffff;
-        padding: 35px;
-        border-radius: 12px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        background: linear-gradient(145deg, #020617, #020617);
+        border-radius: 18px;
+        padding: 40px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+        position: relative;
+        overflow: hidden;
       }
 
-      h1 {
-        text-align: center;
-        margin-bottom: 10px;
-        color: #1e3a8a;
+      .app-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(239, 68, 68, 0.15),
+          transparent
+        );
+        pointer-events: none;
       }
 
-      p {
+      header {
         text-align: center;
-        color: #555;
-        font-size: 14px;
-        margin-bottom: 20px;
+        margin-bottom: 35px;
+      }
+
+      header h1 {
+        font-size: 2.6rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #ef4444, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      header p {
+        font-size: 0.95rem;
+        color: #9ca3af;
+        margin-top: 10px;
+      }
+
+      .input-section {
+        margin-bottom: 25px;
+      }
+
+      label {
+        font-size: 0.9rem;
+        color: #d1d5db;
+        margin-bottom: 8px;
+        display: block;
       }
 
       textarea {
         width: 100%;
-        min-height: 90px;
-        padding: 12px;
+        min-height: 110px;
+        background: #020617;
+        border: 1px solid #1f2933;
+        border-radius: 10px;
+        padding: 15px;
         font-size: 14px;
-        border-radius: 6px;
-        border: 1px solid #d1d5db;
+        color: #f9fafb;
         resize: none;
         outline: none;
-        transition: border 0.2s ease;
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      textarea::placeholder {
+        color: #6b7280;
       }
 
       textarea:focus {
-        border-color: #2563eb;
+        border-color: #ef4444;
+        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
       }
 
       button {
-        margin-top: 15px;
         width: 100%;
-        padding: 12px;
+        margin-top: 20px;
+        padding: 14px;
         font-size: 15px;
         font-weight: 600;
-        background: linear-gradient(135deg, #2563eb, #1e40af);
-        color: white;
+        border-radius: 12px;
         border: none;
-        border-radius: 6px;
         cursor: pointer;
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        background: linear-gradient(135deg, #ef4444, #f97316);
+        color: #ffffff;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(239, 68, 68, 0.45);
       }
 
       .results {
-        margin-top: 30px;
-        background: #f9fafb;
-        padding: 15px;
-        border-radius: 8px;
+        margin-top: 35px;
+        background: #020617;
+        border-radius: 14px;
+        padding: 25px;
+        border: 1px solid #1f2933;
       }
 
       .results h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #f97316;
+      }
+
+      .movie-list {
+        list-style: none;
+      }
+
+      .movie-list li {
+        padding: 12px 15px;
         margin-bottom: 10px;
-        color: #1e3a8a;
+        background: #030712;
+        border-radius: 10px;
+        border-left: 4px solid #ef4444;
+        font-size: 0.95rem;
+        transition: transform 0.15s ease;
       }
 
-      ul {
-        padding-left: 18px;
-        margin: 0;
+      .movie-list li:hover {
+        transform: translateX(4px);
       }
 
-      li {
-        margin-bottom: 8px;
-        color: #374151;
-      }
-
-      .footer {
+      footer {
         text-align: center;
-        margin-top: 30px;
-        font-size: 12px;
+        margin-top: 40px;
+        font-size: 0.75rem;
         color: #6b7280;
       }
     </style>
   </head>
 
   <body>
-    <div class="page">
+    <div class="app-container">
+      <header>
+        <h1>🎥 CineMatch</h1>
+        <p>
+          Describe your mood, favorite genres, or movies you like — we’ll find
+          the perfect match.
+        </p>
+      </header>
+
       <!-- React mounts here -->
       <div id="root"></div>
 
-      <div class="footer">
-        🎬 Movie Recommendation Web App • Full Stack Assignment
+      <!-- Example static UI (can be removed once React renders) -->
+      <div class="input-section">
+        <label for="preferences">Your Movie Preferences</label>
+        <textarea
+          id="preferences"
+          placeholder="Example: Action movies with a strong female lead"
+        ></textarea>
+        <button>Get Recommendations</button>
       </div>
+
+      <div class="results">
+        <h3>Recommended Movies</h3>
+        <ul class="movie-list">
+          <li>Inception (2010)</li>
+          <li>Shutter Island (2010)</li>
+          <li>Gone Girl (2014)</li>
+        </ul>
+      </div>
+
+      <footer>
+        🍿 CineMatch • Full Stack Movie Recommendation App
+      </footer>
     </div>
 
-    <!-- React entry point -->
+    <!-- React entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
-</html>  
+</html>
