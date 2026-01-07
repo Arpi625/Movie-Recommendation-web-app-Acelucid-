@@ -16,7 +16,7 @@ The application accepts a short description from the user (genre, mood, or prefe
   https://movie-recommendation-web-app-acelucid.onrender.com
 
 - **GitHub Repository:**  
-  https://github.com/Arpi625/Movie-Recommendation-web-app-Acelucid-/tree/main
+  https://github.com/Arpi625/Movie-Recommendation-web-app-Acelucid-/tree/main 
 
 ---
 
