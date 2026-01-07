@@ -10,7 +10,7 @@ The application accepts a short description from the user (genre, mood, or prefe
 ## 🚀 Live Demo
 
 - **Frontend (Vercel):**  
-  https://movie-recommendation-seven-rust.vercel.app/
+  https://movie-recommendation-web-app-acelucid-5llrqg0sl.vercel.app
 
 - **Backend (Render):**  
   https://movie-recommendation-2rzc.onrender.com
