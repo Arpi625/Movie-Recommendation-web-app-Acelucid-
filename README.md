@@ -13,7 +13,7 @@ The application accepts a short description from the user (genre, mood, or prefe
   https://movie-recommendation-web-app-acelucid-qequ45njt.vercel.app
 
 - **Backend (Render):**  
-  https://movie-recommendation-2rzc.onrender.com
+  https://movie-recommendation-web-app-acelucid.onrender.com
 
 - **GitHub Repository:**  
   https://github.com/Bittu-26/Movie-Recommendation
