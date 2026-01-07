@@ -1,41 +1,27 @@
+import "./App.css";
+
 export default function App() {
   return (
-    <div style={{
-      maxWidth: "600px",
-      margin: "60px auto",
-      padding: "30px",
-      background: "#ffffff",
-      borderRadius: "12px",
-      boxShadow: "0 15px 30px rgba(0,0,0,0.2)"
-    }}>
-      <h1 style={{ textAlign: "center", color: "#1e3a8a" }}>
-        🎬 Movie Recommendation App
-      </h1>
+    <div className="page">
+      <div className="card">
+        <h1>🎬 Movie Recommendation App</h1>
+        <p className="subtitle">
+          Describe your mood, favorite genres, or movies you like
+        </p>
 
-      <textarea
-        placeholder='e.g. "Sci-fi movies with time travel"'
-        style={{
-          width: "100%",
-          padding: "12px",
-          marginTop: "15px",
-          borderRadius: "6px",
-          border: "1px solid #ccc"
-        }}
-      />
+        <textarea placeholder="e.g. Sci-fi movies with time travel"></textarea>
 
-      <button style={{
-        marginTop: "15px",
-        width: "100%",
-        padding: "12px",
-        background: "#2563eb",
-        color: "#fff",
-        border: "none",
-        borderRadius: "6px",
-        fontWeight: "600",
-        cursor: "pointer"
-      }}>
-        Get Recommendations
-      </button>
+        <button>Get Recommendations</button>
+
+        <div className="results">
+          <h3>Recommended Movies</h3>
+          <ul>
+            <li>Inception (2010)</li>
+            <li>Interstellar (2014)</li>
+            <li>Shutter Island (2010)</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
